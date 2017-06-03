@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A52828C1AEA9A151968A9D3 /* Pods_LeasingManagers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03FA4DEE7896F0BEF22FCA8 /* Pods_LeasingManagers.framework */; };
+		3EAF44BFCA5C56247A2B19F0 /* Pods_LeasingManagersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59903738394338651B97F468 /* Pods_LeasingManagersUITests.framework */; };
+		B946EA3B1EE312C400577790 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B946EA3A1EE312C400577790 /* GoogleService-Info.plist */; };
+		B946EA3D1EE314A200577790 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946EA3C1EE314A200577790 /* LoginViewController.swift */; };
+		B946EA3F1EE3179400577790 /* DiscussionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946EA3E1EE3179400577790 /* DiscussionsViewController.swift */; };
+		B946EA421EE3190200577790 /* Discussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946EA411EE3190200577790 /* Discussion.swift */; };
+		B946EA501EE35A7D00577790 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946EA4F1EE35A7D00577790 /* ChatViewController.swift */; };
 		B97225411EE09E6600BB5ECA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97225401EE09E6600BB5ECA /* AppDelegate.swift */; };
-		B97225431EE09E6600BB5ECA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97225421EE09E6600BB5ECA /* ViewController.swift */; };
 		B97225461EE09E6600BB5ECA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B97225441EE09E6600BB5ECA /* Main.storyboard */; };
 		B97225481EE09E6600BB5ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97225471EE09E6600BB5ECA /* Assets.xcassets */; };
 		B972254B1EE09E6600BB5ECA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B97225491EE09E6600BB5ECA /* LaunchScreen.storyboard */; };
 		B97225561EE09E6600BB5ECA /* LeasingManagersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97225551EE09E6600BB5ECA /* LeasingManagersTests.swift */; };
 		B97225611EE09E6600BB5ECA /* LeasingManagersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97225601EE09E6600BB5ECA /* LeasingManagersUITests.swift */; };
+		BFFE82C1C7985EDF83ABF68A /* Pods_LeasingManagersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E582F26AA6ECA3ED026E8734 /* Pods_LeasingManagersTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +41,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		532A965E41692714E9FA1046 /* Pods-LeasingManagersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeasingManagersTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeasingManagersTests/Pods-LeasingManagersTests.release.xcconfig"; sourceTree = "<group>"; };
+		57C3D80D158D46053CF6005F /* Pods-LeasingManagersUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeasingManagersUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeasingManagersUITests/Pods-LeasingManagersUITests.release.xcconfig"; sourceTree = "<group>"; };
+		59903738394338651B97F468 /* Pods_LeasingManagersUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeasingManagersUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		759B5D73E2BA19150929F104 /* Pods-LeasingManagersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeasingManagersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeasingManagersTests/Pods-LeasingManagersTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B946EA3A1EE312C400577790 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B946EA3C1EE314A200577790 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B946EA3E1EE3179400577790 /* DiscussionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionsViewController.swift; sourceTree = "<group>"; };
+		B946EA411EE3190200577790 /* Discussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discussion.swift; sourceTree = "<group>"; };
+		B946EA4F1EE35A7D00577790 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		B972253D1EE09E6600BB5ECA /* LeasingManagers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeasingManagers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97225401EE09E6600BB5ECA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B97225421EE09E6600BB5ECA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B97225451EE09E6600BB5ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B97225471EE09E6600BB5ECA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B972254A1EE09E6600BB5ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +62,11 @@
 		B972255C1EE09E6600BB5ECA /* LeasingManagersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeasingManagersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97225601EE09E6600BB5ECA /* LeasingManagersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeasingManagersUITests.swift; sourceTree = "<group>"; };
 		B97225621EE09E6600BB5ECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B99BDD36A97D8A79D5EC5400 /* Pods-LeasingManagersUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeasingManagersUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeasingManagersUITests/Pods-LeasingManagersUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D03FA4DEE7896F0BEF22FCA8 /* Pods_LeasingManagers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeasingManagers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB613AE8D9A86698DFE119F3 /* Pods-LeasingManagers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeasingManagers.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeasingManagers/Pods-LeasingManagers.release.xcconfig"; sourceTree = "<group>"; };
+		E582F26AA6ECA3ED026E8734 /* Pods_LeasingManagersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeasingManagersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEC9B076D2647BB125D9DBC1 /* Pods-LeasingManagers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeasingManagers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeasingManagers/Pods-LeasingManagers.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A52828C1AEA9A151968A9D3 /* Pods_LeasingManagers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFFE82C1C7985EDF83ABF68A /* Pods_LeasingManagersTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +90,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EAF44BFCA5C56247A2B19F0 /* Pods_LeasingManagersUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B946EA401EE318EE00577790 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B946EA411EE3190200577790 /* Discussion.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		B97225341EE09E6600BB5ECA = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +112,8 @@
 				B97225541EE09E6600BB5ECA /* LeasingManagersTests */,
 				B972255F1EE09E6600BB5ECA /* LeasingManagersUITests */,
 				B972253E1EE09E6600BB5ECA /* Products */,
+				CE31EF9379020259D280D5AE /* Pods */,
+				BA5F1F09FFABF30B58DB9986 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +130,16 @@
 		B972253F1EE09E6600BB5ECA /* LeasingManagers */ = {
 			isa = PBXGroup;
 			children = (
-				B97225401EE09E6600BB5ECA /* AppDelegate.swift */,
-				B97225421EE09E6600BB5ECA /* ViewController.swift */,
 				B97225441EE09E6600BB5ECA /* Main.storyboard */,
+				B97225401EE09E6600BB5ECA /* AppDelegate.swift */,
+				B946EA3C1EE314A200577790 /* LoginViewController.swift */,
+				B946EA3E1EE3179400577790 /* DiscussionsViewController.swift */,
+				B946EA4F1EE35A7D00577790 /* ChatViewController.swift */,
+				B946EA401EE318EE00577790 /* Model */,
 				B97225471EE09E6600BB5ECA /* Assets.xcassets */,
 				B97225491EE09E6600BB5ECA /* LaunchScreen.storyboard */,
 				B972254C1EE09E6600BB5ECA /* Info.plist */,
+				B946EA3A1EE312C400577790 /* GoogleService-Info.plist */,
 			);
 			path = LeasingManagers;
 			sourceTree = "<group>";
@@ -125,6 +162,29 @@
 			path = LeasingManagersUITests;
 			sourceTree = "<group>";
 		};
+		BA5F1F09FFABF30B58DB9986 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D03FA4DEE7896F0BEF22FCA8 /* Pods_LeasingManagers.framework */,
+				E582F26AA6ECA3ED026E8734 /* Pods_LeasingManagersTests.framework */,
+				59903738394338651B97F468 /* Pods_LeasingManagersUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE31EF9379020259D280D5AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FEC9B076D2647BB125D9DBC1 /* Pods-LeasingManagers.debug.xcconfig */,
+				DB613AE8D9A86698DFE119F3 /* Pods-LeasingManagers.release.xcconfig */,
+				759B5D73E2BA19150929F104 /* Pods-LeasingManagersTests.debug.xcconfig */,
+				532A965E41692714E9FA1046 /* Pods-LeasingManagersTests.release.xcconfig */,
+				B99BDD36A97D8A79D5EC5400 /* Pods-LeasingManagersUITests.debug.xcconfig */,
+				57C3D80D158D46053CF6005F /* Pods-LeasingManagersUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B97225651EE09E6600BB5ECA /* Build configuration list for PBXNativeTarget "LeasingManagers" */;
 			buildPhases = (
+				912165B5C7ABE02F9F664AE4 /* [CP] Check Pods Manifest.lock */,
 				B97225391EE09E6600BB5ECA /* Sources */,
 				B972253A1EE09E6600BB5ECA /* Frameworks */,
 				B972253B1EE09E6600BB5ECA /* Resources */,
+				3791A634B3E001F51AFF6625 /* [CP] Embed Pods Frameworks */,
+				5D90FDD1C4F89FAAB484D715 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +212,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B97225681EE09E6600BB5ECA /* Build configuration list for PBXNativeTarget "LeasingManagersTests" */;
 			buildPhases = (
+				F08A6EEB2CE3719ECD609766 /* [CP] Check Pods Manifest.lock */,
 				B972254D1EE09E6600BB5ECA /* Sources */,
 				B972254E1EE09E6600BB5ECA /* Frameworks */,
 				B972254F1EE09E6600BB5ECA /* Resources */,
+				016A8349C32A291F81B47B32 /* [CP] Embed Pods Frameworks */,
+				DD8B1F0FCD8CC9027DE97199 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +233,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B972256B1EE09E6600BB5ECA /* Build configuration list for PBXNativeTarget "LeasingManagersUITests" */;
 			buildPhases = (
+				B63E3C43EFDCE25B10921DD3 /* [CP] Check Pods Manifest.lock */,
 				B97225581EE09E6600BB5ECA /* Sources */,
 				B97225591EE09E6600BB5ECA /* Frameworks */,
 				B972255A1EE09E6600BB5ECA /* Resources */,
+				893816F976AB7E20BE25021F /* [CP] Embed Pods Frameworks */,
+				BBBF20659CA9CB184A852254 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B946EA3B1EE312C400577790 /* GoogleService-Info.plist in Resources */,
 				B972254B1EE09E6600BB5ECA /* LaunchScreen.storyboard in Resources */,
 				B97225481EE09E6600BB5ECA /* Assets.xcassets in Resources */,
 				B97225461EE09E6600BB5ECA /* Main.storyboard in Resources */,
@@ -254,13 +324,154 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		016A8349C32A291F81B47B32 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeasingManagersTests/Pods-LeasingManagersTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3791A634B3E001F51AFF6625 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeasingManagers/Pods-LeasingManagers-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D90FDD1C4F89FAAB484D715 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeasingManagers/Pods-LeasingManagers-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		893816F976AB7E20BE25021F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeasingManagersUITests/Pods-LeasingManagersUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		912165B5C7ABE02F9F664AE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B63E3C43EFDCE25B10921DD3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BBBF20659CA9CB184A852254 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeasingManagersUITests/Pods-LeasingManagersUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD8B1F0FCD8CC9027DE97199 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeasingManagersTests/Pods-LeasingManagersTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F08A6EEB2CE3719ECD609766 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B97225391EE09E6600BB5ECA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B97225431EE09E6600BB5ECA /* ViewController.swift in Sources */,
+				B946EA3D1EE314A200577790 /* LoginViewController.swift in Sources */,
 				B97225411EE09E6600BB5ECA /* AppDelegate.swift in Sources */,
+				B946EA3F1EE3179400577790 /* DiscussionsViewController.swift in Sources */,
+				B946EA501EE35A7D00577790 /* ChatViewController.swift in Sources */,
+				B946EA421EE3190200577790 /* Discussion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +619,7 @@
 		};
 		B97225661EE09E6600BB5ECA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEC9B076D2647BB125D9DBC1 /* Pods-LeasingManagers.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LeasingManagers/Info.plist;
@@ -420,6 +632,7 @@
 		};
 		B97225671EE09E6600BB5ECA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB613AE8D9A86698DFE119F3 /* Pods-LeasingManagers.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LeasingManagers/Info.plist;
@@ -432,6 +645,7 @@
 		};
 		B97225691EE09E6600BB5ECA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 759B5D73E2BA19150929F104 /* Pods-LeasingManagersTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -446,6 +660,7 @@
 		};
 		B972256A1EE09E6600BB5ECA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 532A965E41692714E9FA1046 /* Pods-LeasingManagersTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -460,6 +675,7 @@
 		};
 		B972256C1EE09E6600BB5ECA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B99BDD36A97D8A79D5EC5400 /* Pods-LeasingManagersUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = LeasingManagersUITests/Info.plist;
@@ -473,6 +689,7 @@
 		};
 		B972256D1EE09E6600BB5ECA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57C3D80D158D46053CF6005F /* Pods-LeasingManagersUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = LeasingManagersUITests/Info.plist;
@@ -503,6 +720,7 @@
 				B97225671EE09E6600BB5ECA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B97225681EE09E6600BB5ECA /* Build configuration list for PBXNativeTarget "LeasingManagersTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +729,7 @@
 				B972256A1EE09E6600BB5ECA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B972256B1EE09E6600BB5ECA /* Build configuration list for PBXNativeTarget "LeasingManagersUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +738,7 @@
 				B972256D1EE09E6600BB5ECA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,6 @@
+framework module Pods_LeasingManagers {
+  umbrella header "Pods-LeasingManagers-umbrella.h"
+
+  export *
+  module * { export * }
+}
