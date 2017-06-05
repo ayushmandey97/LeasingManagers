@@ -23,12 +23,16 @@ final class ChatViewController: JSQMessagesViewController {
             self.navigationItem.title = discussion?.name
         }
     }
+    private lazy var messageRef: FIRDatabaseReference = self.discussionRef!.child("messages")
+    private var newMessageRefHandle: FIRDatabaseHandle?
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.senderId = FIRAuth.auth()?.currentUser?.uid
         // No avatars
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,7 +49,7 @@ final class ChatViewController: JSQMessagesViewController {
     }
     private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
-        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.cyan)
     }
     
     private func setupIncomingBubble() -> JSQMessagesBubbleImage {
@@ -73,15 +77,7 @@ final class ChatViewController: JSQMessagesViewController {
             messages.append(message)
         }
     }
-    override func viewDidAppear(_ animated: Bool) {
-        // messages from someone else
-        addMessage(withId: "foo", name: "Mr.Bolt", text: "I am so fast!")
-        // messages sent from local sender
-        addMessage(withId: senderId, name: "Me", text: "I bet I can run faster than you!")
-        addMessage(withId: senderId, name: "Me", text: "I like to run!")
-        // animates the receiving of a new message on the view
-        finishReceivingMessage()
-    }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
         let message = messages[indexPath.item]
@@ -92,5 +88,47 @@ final class ChatViewController: JSQMessagesViewController {
             cell.textView?.textColor = UIColor.black
         }
         return cell
+    }
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        
+        //Creating a child reference with a unique key
+        let itemRef = messageRef.childByAutoId()
+        
+        let messageItem = [
+            "senderId": senderId!,
+            "senderName": senderDisplayName!,
+            "text": text!,
+            ]
+        //Saving message to new child location
+        itemRef.setValue(messageItem)
+        
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        
+        //Set input toolbar to empty after sending message
+        finishSendingMessage()
+        
+        observeMessages()
+    }
+    private func observeMessages() {
+        messageRef = discussionRef!.child("messages")
+        
+        //Query to limit synchronization to last 25 messages
+        let messageQuery = messageRef.queryLimited(toLast:25)
+        
+        // Observe method to listen for new messages being written to the Firebase DB
+        newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
+            let messageData = snapshot.value as! Dictionary<String, String>
+            
+            if let id = messageData["senderId"] as String!, let name = messageData["senderName"] as String!, let text = messageData["text"] as String!, text.characters.count > 0 {
+                
+                //To add new text to the data source
+                self.addMessage(withId: id, name: name, text: text)
+
+                //To tell JSQMessageVC that the message has been received
+                self.finishReceivingMessage()
+            } else {
+                print("Error! Could not decode message data")
+            }
+        })
     }
 }
