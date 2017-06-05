@@ -11,7 +11,6 @@ import Firebase
 
 class LoginViewController: UIViewController {
     
-    let discussionSegue = "discussionSegue"
     @IBOutlet weak var anonNameField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +28,19 @@ class LoginViewController: UIViewController {
                     print(err.localizedDescription)
                     return
                 }
-                self.performSegue(withIdentifier: self.discussionSegue, sender: nil)
+                self.performSegue(withIdentifier: "discussionSegue", sender: nil)
             })
         
         }
             
             
+    }
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        let navigationVC = segue.destination as! UINavigationController
+        let discussionVC = navigationVC.viewControllers.first as! DiscussionsViewController
+        discussionVC.senderName = anonNameField.text
     }
 
 }

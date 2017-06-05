@@ -12,8 +12,8 @@ import Firebase
 class DiscussionsViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var discussionTextField: UITextField!
+    
     //MARK: Properties
     var senderName:String?
     private var discussions: [Discussion] = []
@@ -23,10 +23,13 @@ class DiscussionsViewController: UIViewController ,UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.navigationItem.title = "Address"
+        self.title = "Discussions"
         self.tableView.reloadData()
         observeDiscussions()
 
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return discussions.count
@@ -57,11 +60,28 @@ class DiscussionsViewController: UIViewController ,UITableViewDelegate, UITableV
             discussionRef.removeObserver(withHandle: refHandle)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+            let discussion = discussions[indexPath.row]
+            self.performSegue(withIdentifier: "chatSegue", sender: discussion)
+        
+    }
     @IBAction func createDiscussion(_ sender: UIButton) {
         if let name = discussionTextField?.text{
             let newDiscussionRef = discussionRef.childByAutoId()
             let discussionItem = ["name" : name]
             newDiscussionRef.setValue(discussionItem)
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let discussion = sender as? Discussion {
+            let chatVC = segue.destination as! ChatViewController
+            
+            chatVC.senderDisplayName = senderName
+            chatVC.discussion = discussion
+            chatVC.discussionRef = discussionRef.child(discussion.id)
         }
     }
 

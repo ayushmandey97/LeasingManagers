@@ -92,14 +92,14 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="discussionCell" textLabel="0N2-oU-gG8" rowHeight="43" style="IBUITableViewCellStyleDefault" id="Y2s-rh-uce" userLabel="existingChannel">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="43"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y2s-rh-uce" id="eAY-tK-Wu3">
-                                            <frame key="frameInset" width="342" height="42"/>
+                                            <frame key="frameInset" width="342" height="42.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0N2-oU-gG8">
-                                                    <frame key="frameInset" minX="15" width="325" height="42"/>
+                                                    <frame key="frameInset" minX="15" width="325" height="42.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -107,9 +107,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="j8q-fj-TtT" kind="push" id="OHg-6c-EP6"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -124,46 +121,31 @@
                     <connections>
                         <outlet property="discussionTextField" destination="nTc-Qh-9Ic" id="7fW-Y6-Lqb"/>
                         <outlet property="tableView" destination="Ofo-ke-1gn" id="bNg-yk-F55"/>
+                        <segue destination="IKn-Wd-n34" kind="push" identifier="chatSegue" id="S0Z-Eb-inx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Fk-Ds-XZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1999.2" y="135.38230884557723"/>
         </scene>
-        <!--Collection View Controller-->
-        <scene sceneID="imW-Xp-Dhz">
+        <!--Chat View Controller-->
+        <scene sceneID="gCZ-wF-bwz">
             <objects>
-                <collectionViewController id="j8q-fj-TtT" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="v0E-IF-aQ1">
+                <viewController id="IKn-Wd-n34" customClass="ChatViewController" customModule="LeasingManagers" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WJd-Nh-TtH"/>
+                        <viewControllerLayoutGuide type="bottom" id="FEo-YQ-vil"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hCh-YU-wPG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GQO-TI-cjV">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="PiM-hY-wSo">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="j8q-fj-TtT" id="jMe-96-U94"/>
-                            <outlet property="delegate" destination="j8q-fj-TtT" id="wdJ-Pn-Jn4"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="jPR-vE-kiK"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hFe-7Z-nVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Y40-B1-cvl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i2U-z2-D4u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3008.8000000000002" y="134.48275862068968"/>
+            <point key="canvasLocation" x="2916" y="135"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RoV-Os-Efd">
