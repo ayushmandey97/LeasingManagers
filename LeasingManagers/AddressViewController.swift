@@ -33,7 +33,7 @@ class AddressViewController: UIViewController {
         if let addressName = textField?.text{
             let newAddressRef = addressRef.childByAutoId()
             let addressItem = ["address" : addressName]
-            newAddressRef.setValue(addressItem)
+            
             
             var obj : Address?
             var existing: Bool = false
@@ -45,6 +45,7 @@ class AddressViewController: UIViewController {
             }
             if existing == false{
                 obj = Address(name: addressName, id: newAddressRef.key)
+                newAddressRef.setValue(addressItem)
             }
             self.performSegue(withIdentifier: "showAddressDiscussions", sender: obj!)
         }
