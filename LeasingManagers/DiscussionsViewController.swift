@@ -15,15 +15,25 @@ class DiscussionsViewController: UIViewController ,UITableViewDelegate, UITableV
     @IBOutlet weak var discussionTextField: UITextField!
     
     //MARK: Properties
+    var addressName: String?
     var senderName:String?
+    var addressRef: FIRDatabaseReference?
+    
+    private lazy var discussionRef: FIRDatabaseReference = self.addressRef!.child("discussions")
+
     private var discussions: [Discussion] = []
-    private lazy var discussionRef: FIRDatabaseReference = FIRDatabase.database().reference().child("discussions")
     private var discussionRefHandle: FIRDatabaseHandle?
+    var address: Address? {
+        didSet {
+            self.navigationItem.title = address?.name
+        }
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.title = "Discussions"
+        self.title = self.addressName
         self.tableView.reloadData()
         observeDiscussions()
 
@@ -43,11 +53,12 @@ class DiscussionsViewController: UIViewController ,UITableViewDelegate, UITableV
     }
     // MARK: Firebase related methods
     private func observeDiscussions() {
+        discussionRef = addressRef!.child("discussions")
         // Use the observe method to listen for new channels being written to the Firebase DB
         discussionRefHandle = discussionRef.observe(.childAdded, with: { (snapshot) -> Void in
             let channelData = snapshot.value as! Dictionary <String, AnyObject>
             let id = snapshot.key
-            if let name = channelData["name"] as! String!, name.characters.count > 0 {
+            if let name = channelData["discussion"] as! String!, name.characters.count > 0 {
                 self.discussions.append(Discussion(name: name, id: id))
                 self.tableView.reloadData()
             } else {
@@ -69,7 +80,7 @@ class DiscussionsViewController: UIViewController ,UITableViewDelegate, UITableV
     @IBAction func createDiscussion(_ sender: UIButton) {
         if let name = discussionTextField?.text{
             let newDiscussionRef = discussionRef.childByAutoId()
-            let discussionItem = ["name" : name]
+            let discussionItem = ["discussion" : name]
             newDiscussionRef.setValue(discussionItem)
         }
     }

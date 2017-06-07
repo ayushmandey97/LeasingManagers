@@ -9,7 +9,7 @@
 import UIKit
 import JSQMessagesViewController
 import Firebase
-
+import Photos
 
 final class ChatViewController: JSQMessagesViewController {
     
@@ -29,6 +29,7 @@ final class ChatViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.senderId = FIRAuth.auth()?.currentUser?.uid
+        
         // No avatars
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
@@ -108,6 +109,7 @@ final class ChatViewController: JSQMessagesViewController {
         finishSendingMessage()
         
         observeMessages()
+        isTyping = false
     }
     private func observeMessages() {
         messageRef = discussionRef!.child("messages")
@@ -119,7 +121,7 @@ final class ChatViewController: JSQMessagesViewController {
         newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
             let messageData = snapshot.value as! Dictionary<String, String>
             
-            if let id = messageData["senderId"] as String!, let name = messageData["senderName"] as String!, let text = messageData["text"] as String!, text.characters.count > 0 {
+            if let id = messageData["senderId"] as String! , let name = messageData["senderName"] as String!, let text = messageData["text"] as String!, text.characters.count > 0 {
                 
                 //To add new text to the data source
                 self.addMessage(withId: id, name: name, text: text)
@@ -131,4 +133,54 @@ final class ChatViewController: JSQMessagesViewController {
             }
         })
     }
+    
+    //CONNECTIONS TO DISPLAY WHETHER A USER IS TYPING
+    
+    //This property holds an FIRDatabaseQuery, which is ordered.
+    private lazy var usersTypingQuery: FIRDatabaseQuery =
+        self.discussionRef!.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
+    
+    
+    // Firebase reference that tracks whether the local user is typing.
+    private lazy var userIsTypingRef: FIRDatabaseReference =
+        self.discussionRef!.child("typingIndicator").child(self.senderId)
+    
+    //To store whether local user is typing
+    private var localTyping = false
+    
+    //Computed property to update localTyping and userIsTypingRef each time it’s changed.
+    var isTyping: Bool {
+        get {
+            return localTyping
+        }
+        set {
+            localTyping = newValue
+            userIsTypingRef.setValue(newValue)
+        }
+    }
+    private func observeTyping() {
+        let typingIndicatorRef = discussionRef!.child("typingIndicator")
+        userIsTypingRef = typingIndicatorRef.child(senderId)
+        userIsTypingRef.onDisconnectRemoveValue()
+        
+        usersTypingQuery.observe(.value) { (data: FIRDataSnapshot) in
+            //If the current user is the only one who is typing
+            if data.childrenCount == 1 && self.isTyping {
+                return
+            }
+            
+            //If others are typing, then show indicator
+            self.showTypingIndicator = data.childrenCount > 0
+            self.scrollToBottom(animated: true)
+        }
+    }
+    
+    override func textViewDidChange(_ textView: UITextView) {
+        super.textViewDidChange(textView)
+        // If the text is not empty, the user is typing
+        isTyping = textView.text != ""
+    }
+    
+    
+
 }

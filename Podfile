@@ -8,6 +8,8 @@ target 'LeasingManagers' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'JSQMessagesViewController'
+  pod 'SearchTextField'
+  pod 'FirebaseUI'
 
   # Pods for LeasingManagers
 

@@ -8,14 +8,39 @@
 
 import UIKit
 import Firebase
+import FirebaseAuthUI
 
 class LoginViewController: UIViewController {
     
+    //fileprivate var _authHandle: FIRAuthStateDidChangeListener!
+    var user: FIRUser?
+    var displayName = "Anonymous"
     @IBOutlet weak var anonNameField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        //configureAuth()
     }
+    /*func configureAuth(){
+        //Listen for changes in authorization state
+        _authHandle = FIRAuth.addStateDidChangeListener{
+            (auth: FIRAuth, user: FIRUser?) in
+            
+            //Check if there's a current user
+            if let activeUser = user{
+                //Check of current app user is current FIRUser
+                if self.user != activeUser{
+                    self.user = activeUser
+                }
+            }else{
+                //User must sign in
+                self.loginSession()
+            }
+        }
+    }
+    func loginSession(){
+        let authVC = FUIAuth.defaultAuthUI()!.authViewController()
+        present(authVC, animated: true, completion: nil)
+    }*/
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

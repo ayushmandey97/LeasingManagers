@@ -7,8 +7,6 @@
 //
 
 import XCTest
-@testable import LeasingManagers
-
 class LeasingManagersTests: XCTestCase {
     
     override func setUp() {

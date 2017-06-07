@@ -20,6 +20,8 @@
 		B972254B1EE09E6600BB5ECA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B97225491EE09E6600BB5ECA /* LaunchScreen.storyboard */; };
 		B97225561EE09E6600BB5ECA /* LeasingManagersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97225551EE09E6600BB5ECA /* LeasingManagersTests.swift */; };
 		B97225611EE09E6600BB5ECA /* LeasingManagersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97225601EE09E6600BB5ECA /* LeasingManagersUITests.swift */; };
+		B974CDA61EE54DD5002AD513 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B974CDA51EE54DD5002AD513 /* AddressViewController.swift */; };
+		B9F2FAF11EE7B048006D047A /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F2FAF01EE7B048006D047A /* Address.swift */; };
 		BFFE82C1C7985EDF83ABF68A /* Pods_LeasingManagersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E582F26AA6ECA3ED026E8734 /* Pods_LeasingManagersTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +64,9 @@
 		B972255C1EE09E6600BB5ECA /* LeasingManagersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeasingManagersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97225601EE09E6600BB5ECA /* LeasingManagersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeasingManagersUITests.swift; sourceTree = "<group>"; };
 		B97225621EE09E6600BB5ECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B974CDA51EE54DD5002AD513 /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		B99BDD36A97D8A79D5EC5400 /* Pods-LeasingManagersUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeasingManagersUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeasingManagersUITests/Pods-LeasingManagersUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B9F2FAF01EE7B048006D047A /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		D03FA4DEE7896F0BEF22FCA8 /* Pods_LeasingManagers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeasingManagers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB613AE8D9A86698DFE119F3 /* Pods-LeasingManagers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeasingManagers.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeasingManagers/Pods-LeasingManagers.release.xcconfig"; sourceTree = "<group>"; };
 		E582F26AA6ECA3ED026E8734 /* Pods_LeasingManagersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeasingManagersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				B946EA411EE3190200577790 /* Discussion.swift */,
+				B9F2FAF01EE7B048006D047A /* Address.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 				B97225441EE09E6600BB5ECA /* Main.storyboard */,
 				B97225401EE09E6600BB5ECA /* AppDelegate.swift */,
 				B946EA3C1EE314A200577790 /* LoginViewController.swift */,
+				B974CDA51EE54DD5002AD513 /* AddressViewController.swift */,
 				B946EA3E1EE3179400577790 /* DiscussionsViewController.swift */,
 				B946EA4F1EE35A7D00577790 /* ChatViewController.swift */,
 				B946EA401EE318EE00577790 /* Model */,
@@ -470,8 +476,10 @@
 				B946EA3D1EE314A200577790 /* LoginViewController.swift in Sources */,
 				B97225411EE09E6600BB5ECA /* AppDelegate.swift in Sources */,
 				B946EA3F1EE3179400577790 /* DiscussionsViewController.swift in Sources */,
+				B974CDA61EE54DD5002AD513 /* AddressViewController.swift in Sources */,
 				B946EA501EE35A7D00577790 /* ChatViewController.swift in Sources */,
 				B946EA421EE3190200577790 /* Discussion.swift in Sources */,
+				B9F2FAF11EE7B048006D047A /* Address.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
