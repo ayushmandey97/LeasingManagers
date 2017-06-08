@@ -17,7 +17,6 @@ class AddressViewController: UIViewController {
     fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!
     var user: FIRUser?
     var displayName = "Anonymous"
-    private lazy var userRef: FIRDatabaseReference = self.addressRef.child("users")
     
     //Address properties
     @IBOutlet weak var textField: SearchTextField!
@@ -25,7 +24,7 @@ class AddressViewController: UIViewController {
     
     var addressName: String?
     var addresses: [Address] = []
-    private lazy var addressRef: FIRDatabaseReference = FIRDatabase.database().reference().child("addresses")
+    private lazy var addressRef: FIRDatabaseReference = FIRDatabase.database().reference()
     private var addressRefHandle: FIRDatabaseHandle?
 
     override func viewDidLoad() {
@@ -33,7 +32,6 @@ class AddressViewController: UIViewController {
         textField.filterStrings(list)
         textField.inlineMode = true
         textField.theme.placeholderColor = UIColor.gray
-        
         
         //Check for user authentication state
         configureAuth()
@@ -45,6 +43,7 @@ class AddressViewController: UIViewController {
         let provider: [FUIAuthProvider] = [FUIGoogleAuth()]
         FUIAuth.defaultAuthUI()?.providers = provider
         FUIAuth.defaultAuthUI()?.isSignInWithEmailHidden = true
+        
         //Listen for changes in authorization state
         _authHandle = FIRAuth.auth()?.addStateDidChangeListener{
             (auth: FIRAuth, user: FIRUser?) in
@@ -88,32 +87,30 @@ class AddressViewController: UIViewController {
                     existing = true
                 }
             }
+            
             if existing == false{
+                
                 //Creating new address
                 let newAddressRef = addressRef.childByAutoId()
                 let addressItem = ["address" : addressName]
-                
                 obj = Address(name: addressName, id: newAddressRef.key)
                 newAddressRef.setValue(addressItem)
                 
                 //Creating user
-                let userRef: FIRDatabaseReference = newAddressRef.child("users")
-                let newUserRef = userRef.childByAutoId()
+                let userRef: FIRDatabaseReference = newAddressRef.child("users").child((user?.uid)!)
                 let userItem = self.user?.displayName
-                newUserRef.setValue(userItem)
-            }else{
-                //Getting the path to previously existing address
-                let oldAddressRef = addressRef.child("/addresses/address/" + addressName)
+                userRef.setValue(userItem)
+            }
+            else{
+                //Getting the reference to the previously added address
+                let oldAddressRef : FIRDatabaseReference = addressRef.child("\((obj?.id)!)")
                 
                 //Creating user
-                let userRef: FIRDatabaseReference = oldAddressRef.child("users")
-                let newUserRef = userRef.childByAutoId()
+                let userRef: FIRDatabaseReference = oldAddressRef.child("users").child((user?.uid)!)
                 let userItem = self.user?.displayName
-                newUserRef.setValue(userItem)
+                userRef.setValue(userItem)
+             }
 
-            }
-            
-            
             self.performSegue(withIdentifier: "showAddressDiscussions", sender: obj!)
         }
     }
@@ -142,18 +139,4 @@ class AddressViewController: UIViewController {
             discussionVC.address = address
         }
     }
-
-
 }
-/*
- if anonNameField?.text != "" {
- FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
- if let err = error{
- print(err.localizedDescription)
- return
- }
- self.performSegue(withIdentifier: "discussionSegue", sender: nil)
- })
- 
- }
- */
