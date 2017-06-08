@@ -91,6 +91,20 @@ final class ChatViewController: JSQMessagesViewController {
         }
         return cell
     }
+
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
+        return 16
+    }
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+        let message = messages[indexPath.item]
+        let senderDisplayName = message.senderDisplayName
+        if senderDisplayName == FIRAuth.auth()?.currentUser?.displayName{
+            return nil
+        }
+        
+        return NSAttributedString(string: senderDisplayName!)
+    }
+    
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
         //Creating a child reference with a unique key
