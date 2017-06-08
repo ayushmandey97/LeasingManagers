@@ -137,6 +137,7 @@ class AddressViewController: UIViewController {
             discussionVC.addressName = textField.text
             discussionVC.addressRef = addressRef.child(address.id)
             discussionVC.address = address
+            discussionVC.senderName = user?.displayName
         }
     }
 }

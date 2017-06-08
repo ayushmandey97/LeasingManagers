@@ -13,6 +13,9 @@ import Photos
 
 final class ChatViewController: JSQMessagesViewController {
     
+    private lazy var messageRef: FIRDatabaseReference = self.discussionRef!.child("messages")
+    private var newMessageRefHandle: FIRDatabaseHandle?
+    
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
     
@@ -23,17 +26,15 @@ final class ChatViewController: JSQMessagesViewController {
             self.navigationItem.title = discussion?.name
         }
     }
-    private lazy var messageRef: FIRDatabaseReference = self.discussionRef!.child("messages")
-    private var newMessageRefHandle: FIRDatabaseHandle?
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.senderId = FIRAuth.auth()?.currentUser?.uid
+        self.senderId = FIRAuth.auth()?.currentUser?.uid
         
         // No avatars
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
-        
+        observeMessages()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +51,7 @@ final class ChatViewController: JSQMessagesViewController {
     }
     private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
-        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.cyan)
+        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleRed())
     }
     
     private func setupIncomingBubble() -> JSQMessagesBubbleImage {
@@ -83,11 +84,11 @@ final class ChatViewController: JSQMessagesViewController {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
         let message = messages[indexPath.item]
         
-        /*if message.senderId == senderId {
+        if message.senderId == senderId {
             cell.textView?.textColor = UIColor.white
         } else {
             cell.textView?.textColor = UIColor.black
-        }*/
+        }
         return cell
     }
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
@@ -136,7 +137,7 @@ final class ChatViewController: JSQMessagesViewController {
     
     //CONNECTIONS TO DISPLAY WHETHER A USER IS TYPING
     
-    //This property holds an FIRDatabaseQuery, which is ordered.
+    //This property holds an FIRDatabaseQuery to get all the users who are typing, which is ordered.
     private lazy var usersTypingQuery: FIRDatabaseQuery =
         self.discussionRef!.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
     
