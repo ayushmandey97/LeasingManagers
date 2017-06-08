@@ -32,8 +32,9 @@ class DiscussionsViewController: UIViewController ,UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         self.title = self.addressName
+        //self.navigationItem.title = "Logout"
+        
         self.tableView.reloadData()
         observeDiscussions()
 

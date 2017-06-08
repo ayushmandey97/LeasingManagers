@@ -10,7 +10,6 @@ target 'LeasingManagers' do
   pod 'JSQMessagesViewController'
   pod 'SearchTextField'
   pod 'FirebaseUI'
-
   # Pods for LeasingManagers
 
   target 'LeasingManagersTests' do

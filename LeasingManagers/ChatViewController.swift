@@ -28,7 +28,7 @@ final class ChatViewController: JSQMessagesViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.senderId = FIRAuth.auth()?.currentUser?.uid
+        //self.senderId = FIRAuth.auth()?.currentUser?.uid
         
         // No avatars
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
@@ -83,11 +83,11 @@ final class ChatViewController: JSQMessagesViewController {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
         let message = messages[indexPath.item]
         
-        if message.senderId == senderId {
+        /*if message.senderId == senderId {
             cell.textView?.textColor = UIColor.white
         } else {
             cell.textView?.textColor = UIColor.black
-        }
+        }*/
         return cell
     }
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {

@@ -10,7 +10,6 @@
 		3A52828C1AEA9A151968A9D3 /* Pods_LeasingManagers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03FA4DEE7896F0BEF22FCA8 /* Pods_LeasingManagers.framework */; };
 		3EAF44BFCA5C56247A2B19F0 /* Pods_LeasingManagersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59903738394338651B97F468 /* Pods_LeasingManagersUITests.framework */; };
 		B946EA3B1EE312C400577790 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B946EA3A1EE312C400577790 /* GoogleService-Info.plist */; };
-		B946EA3D1EE314A200577790 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946EA3C1EE314A200577790 /* LoginViewController.swift */; };
 		B946EA3F1EE3179400577790 /* DiscussionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946EA3E1EE3179400577790 /* DiscussionsViewController.swift */; };
 		B946EA421EE3190200577790 /* Discussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946EA411EE3190200577790 /* Discussion.swift */; };
 		B946EA501EE35A7D00577790 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946EA4F1EE35A7D00577790 /* ChatViewController.swift */; };
@@ -48,7 +47,6 @@
 		59903738394338651B97F468 /* Pods_LeasingManagersUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeasingManagersUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		759B5D73E2BA19150929F104 /* Pods-LeasingManagersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeasingManagersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeasingManagersTests/Pods-LeasingManagersTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B946EA3A1EE312C400577790 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B946EA3C1EE314A200577790 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B946EA3E1EE3179400577790 /* DiscussionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionsViewController.swift; sourceTree = "<group>"; };
 		B946EA411EE3190200577790 /* Discussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discussion.swift; sourceTree = "<group>"; };
 		B946EA4F1EE35A7D00577790 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 			children = (
 				B97225441EE09E6600BB5ECA /* Main.storyboard */,
 				B97225401EE09E6600BB5ECA /* AppDelegate.swift */,
-				B946EA3C1EE314A200577790 /* LoginViewController.swift */,
 				B974CDA51EE54DD5002AD513 /* AddressViewController.swift */,
 				B946EA3E1EE3179400577790 /* DiscussionsViewController.swift */,
 				B946EA4F1EE35A7D00577790 /* ChatViewController.swift */,
@@ -473,7 +470,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B946EA3D1EE314A200577790 /* LoginViewController.swift in Sources */,
 				B97225411EE09E6600BB5ECA /* AppDelegate.swift in Sources */,
 				B946EA3F1EE3179400577790 /* DiscussionsViewController.swift in Sources */,
 				B974CDA61EE54DD5002AD513 /* AddressViewController.swift in Sources */,
