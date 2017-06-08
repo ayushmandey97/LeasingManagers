@@ -26,7 +26,6 @@ final class ChatViewController: JSQMessagesViewController {
             self.navigationItem.title = discussion?.name
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.senderId = FIRAuth.auth()?.currentUser?.uid
@@ -51,12 +50,13 @@ final class ChatViewController: JSQMessagesViewController {
     }
     private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
-        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleRed())
+        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.purple)
     }
     
     private func setupIncomingBubble() -> JSQMessagesBubbleImage {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
         return bubbleImageFactory!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+ 
     }
     
     //Asking datasource for message bubble image data corresponding to message item
@@ -109,7 +109,6 @@ final class ChatViewController: JSQMessagesViewController {
         //Set input toolbar to empty after sending message
         finishSendingMessage()
         
-        observeMessages()
         isTyping = false
     }
     private func observeMessages() {

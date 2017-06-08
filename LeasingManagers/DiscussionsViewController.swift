@@ -34,7 +34,6 @@ class DiscussionsViewController: UIViewController ,UITableViewDelegate, UITableV
         super.viewDidLoad()
         self.title = self.addressName
         //self.navigationItem.title = "Logout"
-        
         self.tableView.reloadData()
         observeDiscussions()
 
@@ -72,11 +71,10 @@ class DiscussionsViewController: UIViewController ,UITableViewDelegate, UITableV
             discussionRef.removeObserver(withHandle: refHandle)
         }
     }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-            let discussion = discussions[indexPath.row]
-            self.performSegue(withIdentifier: "chatSegue", sender: discussion)
-        
+  
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let discussion = discussions[indexPath.row]
+        self.performSegue(withIdentifier: "chatSegue", sender: discussion)
     }
     @IBAction func createDiscussion(_ sender: UIButton) {
         if let name = discussionTextField?.text{
@@ -84,6 +82,7 @@ class DiscussionsViewController: UIViewController ,UITableViewDelegate, UITableV
             let discussionItem = ["discussion" : name]
             newDiscussionRef.setValue(discussionItem)
         }
+        discussionTextField.text = ""
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
