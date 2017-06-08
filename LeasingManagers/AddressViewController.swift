@@ -17,6 +17,7 @@ class AddressViewController: UIViewController {
     fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!
     var user: FIRUser?
     var displayName = "Anonymous"
+    private lazy var userRef: FIRDatabaseReference = self.addressRef.child("users")
     
     //Address properties
     @IBOutlet weak var textField: SearchTextField!
@@ -53,11 +54,16 @@ class AddressViewController: UIViewController {
                 //Check if current app user is current FIRUser
                 if self.user != activeUser{
                     self.user = activeUser
-                    self.performSegue(withIdentifier: "showAddressDiscussions", sender: nil)
+                    self.loginSession()
+                    //self.performSegue(withIdentifier: "showAddressDiscussions", sender: nil)
                 }
             }else{
                 //User must sign in
                 self.loginSession()
+                if let activeUser = user{
+                    self.user = activeUser
+                    self.loginSession()
+                }
             }
         }
     }
@@ -73,9 +79,6 @@ class AddressViewController: UIViewController {
     }
     @IBAction func signUp(_ sender: UIButton) {
         if let addressName = textField?.text{
-            let newAddressRef = addressRef.childByAutoId()
-            let addressItem = ["address" : addressName]
-            
             
             var obj : Address?
             var existing: Bool = false
@@ -86,9 +89,31 @@ class AddressViewController: UIViewController {
                 }
             }
             if existing == false{
+                //Creating new address
+                let newAddressRef = addressRef.childByAutoId()
+                let addressItem = ["address" : addressName]
+                
                 obj = Address(name: addressName, id: newAddressRef.key)
                 newAddressRef.setValue(addressItem)
+                
+                //Creating user
+                let userRef: FIRDatabaseReference = newAddressRef.child("users")
+                let newUserRef = userRef.childByAutoId()
+                let userItem = self.user?.displayName
+                newUserRef.setValue(userItem)
+            }else{
+                //Getting the path to previously existing address
+                let oldAddressRef = addressRef.child("/addresses/address/" + addressName)
+                
+                //Creating user
+                let userRef: FIRDatabaseReference = oldAddressRef.child("users")
+                let newUserRef = userRef.childByAutoId()
+                let userItem = self.user?.displayName
+                newUserRef.setValue(userItem)
+
             }
+            
+            
             self.performSegue(withIdentifier: "showAddressDiscussions", sender: obj!)
         }
     }
